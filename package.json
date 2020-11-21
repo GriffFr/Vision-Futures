@@ -1,0 +1,17 @@
+{
+  "name": "vision-futures",
+  "version": "1.0.0",
+  "description": "Gathers data from various index future and updates channel names to reflect the data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Griffin-Freiberg",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "finviz": "0.0.3",
+    "stock-info": "^1.2.0"
+  }
+}
