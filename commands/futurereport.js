@@ -10,7 +10,7 @@ module.exports = {
             const report = new Discord.MessageEmbed()
                 .setColor("gold")
                 .setTitle("Future Report")
-                .setAuthor("Vision Futures Bot")
+                .setAuthor("Vision Futures")
                 .setDescription("The following prices were retrieved from the Yahoo Finance API")
                 .addFields(
                     { name: 'YM=F - Dow Jones', value: stocks[0].regularMarketPrice + " " + stocks[0].regularMarketChange + "(" + stocks[0].regularMarketChangePercent + "%)"},
