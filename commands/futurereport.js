@@ -8,7 +8,7 @@ module.exports = {
 	execute(message, args) {
         const futurereport = (stocks) => {
             const report = new Discord.MessageEmbed()
-                .setColor("gold")
+                .setColor("GOLD")
                 .setTitle("Future Report")
                 .setAuthor("Vision Futures")
                 .setDescription("The following prices were retrieved from the Yahoo Finance API")

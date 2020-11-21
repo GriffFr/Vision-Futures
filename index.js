@@ -34,7 +34,7 @@ const updateallfutures = () => {
     updatefuture("GC=F", GCFchannel);
 }
 
-const aufinterval;
+var aufinterval;
 
 const autoupdatefutures = () => {
     aufinterval = setInterval(updateallfutures(), 10 * 60 * 1000)
@@ -46,7 +46,7 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
-    if (message.channel.name === "vision-futures" || message.author.bot || !message.content.startsWith(prefix)) return;
+    if (message.channel.name != "vision-futures" || message.author.bot || !message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -54,18 +54,20 @@ client.on('message', message => {
     if (message.member.hasPermission("ADMINISTRATOR")) {
         if (commandName === "updateallfutures") {
             updateallfutures();
-            message.channel.send("Futures have been updated.");
+            return message.channel.send("Futures have been updated.");
         } else if (commandName === "autoupdate") {
             autoupdatefutures();
-            message.channel.send("Updating futures every 10 minutes.");
+           return message.channel.send("Updating futures every 10 minutes.");
         } else if (commandName === "stopautoupdate") {
             clearInterval(aufinterval);
-            message.channel.send("Stopped auto updating futures.");
+            return message.channel.send("Stopped auto updating futures.");
+        } else if (commandName === "kill") {
+            process.exit();
         }
     }
 
     if (!client.commands.has(commandName)) 
-        return mnessage.channel.send("The command either doesn't exist, or you do not have the permissions to use the command.");
+        return message.channel.send("The command either doesn't exist, or you do not have the permissions to use the command.");
 
     const command = client.commands.get(commandName);
 
