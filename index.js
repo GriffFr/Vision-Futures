@@ -37,7 +37,7 @@ const updateallfutures = () => {
 var aufinterval;
 
 const autoupdatefutures = () => {
-    aufinterval = setInterval(updateallfutures(), 10 * 60 * 1000)
+    aufinterval = setInterval(updateallfutures, 10 * 60 * 1000)
 }
 
 client.once('ready', () => {
